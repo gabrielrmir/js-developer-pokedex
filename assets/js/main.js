@@ -1,5 +1,7 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
+const modalElement = document.getElementById('modal')
+const modalContentElement = document.getElementById('modal-content')
 
 const maxRecords = 151
 const limit = 10
@@ -20,6 +22,8 @@ function convertPokemonToLi(pokemon) {
                      alt="${pokemon.name}">
             </div>
             
+            <button class="more-info-button" onclick="showModal(this.parentElement)">More Info</button>
+
             <ol class="stats">
                 ${pokemon.stats.map(stat => `<li class="stat">
                 <span class="stat-name">${stat.name}</span>
@@ -53,3 +57,18 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
+function showModal(e) {
+    modalElement.style.display = 'block';
+    modalContentElement.innerHTML = e.innerHTML;
+}
+
+function closeModal() {
+    modal.style.display = 'none';
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
+} 
