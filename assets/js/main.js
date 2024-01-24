@@ -24,13 +24,14 @@ function convertPokemonToLi(pokemon) {
             
             <button class="more-info-button" onclick="showModal(this.parentElement)">More Info</button>
 
-            <ol class="stats">
-                ${pokemon.stats.map(stat => `<li class="stat">
+            <div class="stats">
+                ${pokemon.stats.map(stat => `
                 <span class="stat-name">${stat.name}</span>
                 <span class="stat-number">${stat.amount}</span>
-                <div class="stat-bar"></div>
-                </li>`).join('')}
-            </ol>
+                <div class="stat-bar-background">
+                <div class="stat-bar" style="width: ${stat.amount}%;"></div>
+                </div>`).join('')}
+            </div>
         </li>
     `
 }

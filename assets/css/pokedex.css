@@ -133,22 +133,30 @@
 
 .stats {
     text-transform: capitalize;
-    color: white;
-    list-style: none;
-    padding: 0;
-}
-
-.stat {
-    display: flex;
-    flex-direction: row;
+    color: black;
+    display: grid;
+    grid-template-columns: 2fr 1fr 6fr;
+    width: 100%;
     align-items: center;
-    justify-content: space-between;
+    padding: 1rem;
 }
 
-.stat .stat-bar {
+#modal-content .more-info-button {
+    display: none;
+}
+
+.stats .stat-name {
+    color: gray;
+}
+
+.stats .stat-bar-background {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.stats .stat-bar {
     background-color: #3EBD71;
     border-radius: 1rem;
-    width: 100%;
     height: 4px;
 }
 
