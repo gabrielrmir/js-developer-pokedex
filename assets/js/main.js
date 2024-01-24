@@ -60,7 +60,7 @@ loadMoreButton.addEventListener('click', () => {
 })
 
 function showModal(e) {
-    modalElement.style.display = 'block';
+    modalElement.style.display = 'flex';
     modalContentElement.innerHTML = e.innerHTML;
 }
 

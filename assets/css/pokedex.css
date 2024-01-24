@@ -131,6 +131,14 @@
     display: none;
 }
 
+.pokemon .more-info-button {
+    background: none;
+    border: none;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .stats {
     text-transform: capitalize;
     color: black;
@@ -174,6 +182,8 @@
     max-width: 576px;
     margin: auto;
     background-color: white;
+    border-radius: 1rem;
+    padding: 1rem;
 }
 
 .pagination {
