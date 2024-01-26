@@ -24,14 +24,26 @@ function convertPokemonToLi(pokemon) {
             
             <button class="more-info-button" onclick="showModal(this.parentElement)">More Info</button>
 
-            <div class="stats">
+            <div class="tab-container">
+                <div class="tabs">
+                    <button class="tab-button" onclick="selectModalTab(this,'about')" selected>About</button>
+                    <button class="tab-button" onclick="selectModalTab(this,'stats')">Base Stats</button>
+                    <button class="tab-button" onclick="selectModalTab(this,'evolution')">Evolution</button>
+                    <button class="tab-button" onclick="selectModalTab(this,'moves')">Moves</button>
+                </div>
+                <div data-tab-id="about" selected>About</div>
+                <div class="stats" data-tab-id="stats">
                 ${pokemon.stats.map(stat => `
                 <span class="stat-name">${stat.name}</span>
                 <span class="stat-number">${stat.amount}</span>
                 <div class="stat-bar-background">
                 <div class="stat-bar" style="width: ${stat.amount}%;"></div>
                 </div>`).join('')}
+                </div>
+                <div data-tab-id="evolution">Evolution</div>
+                <div data-tab-id="moves">Moves</div>
             </div>
+
         </li>
     `
 }
@@ -63,6 +75,24 @@ function showModal(e) {
     modalElement.style.display = 'flex';
     modalContentElement.innerHTML = e.innerHTML;
     modalContentElement.className = e.classList[1];
+}
+
+function selectModalTab(e,tabId) {
+    const modalTabs = document.querySelectorAll(`#modal-content .tab-container [data-tab-id]`);
+    
+    const selectedButton = document.querySelector("#modal-content .tab-container .tabs [selected]");
+    if (selectedButton) {
+        selectedButton.removeAttribute('selected');
+    }
+    e.setAttribute('selected', true);
+
+    modalTabs.forEach(modalTab => {
+        if (modalTab.dataset.tabId === tabId) {
+            modalTab.setAttribute('selected', true);
+        } else {
+            modalTab.removeAttribute('selected');
+        }
+    });
 }
 
 function closeModal() {

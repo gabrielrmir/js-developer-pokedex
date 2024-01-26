@@ -127,7 +127,7 @@
     height: 70px;
 }
 
-.pokemon .stats {
+.pokemon .tab-container {
     display: none;
 }
 
@@ -151,9 +151,10 @@
 
 #modal-content {
     max-width: 576px;
+    max-height: 100vh;
     margin: auto;
     border-radius: 1rem;
-    overflow: hidden;
+    overflow-y: auto;
     /* background-color: white; */
     /* padding: 1rem; */
     display: grid;
@@ -210,18 +211,46 @@
 
 }
 
-#modal-content .stats {
+#modal-content .tab-container {
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
     grid-column: span 2;
     background-color: white;
+    width: 100%;
+    padding: 2rem;
+}
+
+#modal-content .tab-container .tabs {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 4px solid #F0F0F0;
+    margin-bottom: 1rem;
+}
+
+#modal-content .tab-container .tabs .tab-button {
+    background: none;
+    border: none;
+    color: gray;
+    padding-bottom: 1rem;
+    cursor: pointer;
+}
+
+#modal-content .tab-container .tabs .tab-button[selected] {
+    color: black;
+    border-bottom: 4px solid #8993E3;
+    margin-bottom: -4px;
+}
+
+#modal-content .tab-container [data-tab-id]:not([selected]) {
+    display: none;
+}
+
+#modal-content .stats {
     text-transform: capitalize;
     color: black;
     display: grid;
     grid-template-columns: 2fr 1fr 6fr;
-    width: 100%;
     align-items: center;
-    padding: 2rem;
 }
 
 #modal-content .stats .stat-name {
