@@ -36,8 +36,8 @@ function convertPokemonToLi(pokemon) {
                     ${pokemon.stats.map(stat => `
                     <span class="stat-name">${stat.name}</span>
                     <span class="stat-number">${stat.amount}</span>
-                    <div class="stat-bar-background">
-                    <div class="stat-bar" style="width: ${stat.amount}%;"></div>
+                    <div class="stat-bar-background" ${stat.amount >= 100 && `style="background: hsl(${(144-50+50*Math.floor(stat.amount/100))%360}, 51%, 49%);"`}>
+                        <div class="stat-bar" style="width: ${stat.amount%100}%; background: hsl(${(144+50*Math.floor(stat.amount/100))%360}, 51%, 49%);"></div>
                     </div>`).join('')}
                 </div>
                 <div data-tab-id="evolution">Evolution</div>

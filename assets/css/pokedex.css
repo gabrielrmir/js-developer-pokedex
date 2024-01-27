@@ -263,7 +263,8 @@
 }
 
 #modal-content .stats .stat-bar {
-    background-color: #3EBD71;
+    background-color: hsl(144, 51%, 49%);
+    border-right: 4px solid white;
     border-radius: 1rem;
     height: 4px;
 }
