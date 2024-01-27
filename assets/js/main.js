@@ -33,15 +33,21 @@ function convertPokemonToLi(pokemon) {
                 </div>
                 <div data-tab-id="about" selected>About</div>
                 <div class="stats" data-tab-id="stats">
-                ${pokemon.stats.map(stat => `
-                <span class="stat-name">${stat.name}</span>
-                <span class="stat-number">${stat.amount}</span>
-                <div class="stat-bar-background">
-                <div class="stat-bar" style="width: ${stat.amount}%;"></div>
-                </div>`).join('')}
+                    ${pokemon.stats.map(stat => `
+                    <span class="stat-name">${stat.name}</span>
+                    <span class="stat-number">${stat.amount}</span>
+                    <div class="stat-bar-background">
+                    <div class="stat-bar" style="width: ${stat.amount}%;"></div>
+                    </div>`).join('')}
                 </div>
                 <div data-tab-id="evolution">Evolution</div>
-                <div data-tab-id="moves">Moves</div>
+                <div class="moves" data-tab-id="moves">
+                    <ol>
+                        ${pokemon.moves.map(move => `
+                        <li class="move ${pokemon.type}">${move}</li>
+                        `).join('')}
+                    </ol>
+                </div>
             </div>
 
         </li>

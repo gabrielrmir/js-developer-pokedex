@@ -268,6 +268,22 @@
     height: 4px;
 }
 
+#modal-content .moves ol {
+    list-style-position: inside;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#modal-content .moves .move {
+    padding: .5rem 1rem;
+    color: white;
+    border-radius: 1rem;
+    margin-bottom: .5rem;
+    text-transform: capitalize;
+}
+
 .pagination {
     display: flex;
     flex-direction: row;

@@ -34,6 +34,8 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
         amount: pokemon.stats.reduce((sum, stat) => sum+stat.amount,0)
     });
 
+    pokemon.moves = pokeDetail.moves.map(moveSlot => moveSlot.move.name.replace('-',' '));
+
     return pokemon
 }
 
