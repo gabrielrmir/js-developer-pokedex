@@ -150,7 +150,7 @@
 }
 
 #modal-content {
-    max-width: 576px;
+    width: 576px;
     max-height: 100vh;
     margin: auto;
     border-radius: 1rem;
