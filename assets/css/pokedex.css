@@ -259,6 +259,7 @@
 
 #modal-content .stats .stat-bar-background {
     border-radius: 1rem;
+    background-color: #F0F0F0;
     overflow: hidden;
 }
 
