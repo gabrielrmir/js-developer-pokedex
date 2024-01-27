@@ -36,6 +36,10 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
 
     pokemon.moves = pokeDetail.moves.map(moveSlot => moveSlot.move.name.replace('-',' '));
 
+    pokemon.height = pokeDetail.height;
+    pokemon.weight = pokeDetail.weight;
+    pokemon.abilities = pokeDetail.abilities.map(abilitySlot => abilitySlot.ability.name.replace('-',' '));
+
     return pokemon
 }
 

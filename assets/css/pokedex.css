@@ -245,6 +245,21 @@
     display: none;
 }
 
+#modal-content .about {
+    display: grid;
+    row-gap: .5rem;
+    grid-template-columns: 1fr 2fr;
+}
+
+#modal-content .about .about-name {
+    color: gray;
+    text-transform: capitalize;
+}
+
+#modal-content .about .about-abilities {
+    text-transform: capitalize;
+}
+
 #modal-content .stats {
     text-transform: capitalize;
     color: black;

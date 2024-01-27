@@ -31,7 +31,14 @@ function convertPokemonToLi(pokemon) {
                     <button class="tab-button" onclick="selectModalTab(this,'evolution')">Evolution</button>
                     <button class="tab-button" onclick="selectModalTab(this,'moves')">Moves</button>
                 </div>
-                <div data-tab-id="about" selected>About</div>
+                <div class="about" data-tab-id="about" selected>
+                    <span class="about-name">Height</span>
+                    <span class="about-value">${(pokemon.height*10).toFixed(2)} cm</span>
+                    <span class="about-name">Weight</span>
+                    <span class="about-value">${pokemon.weight/10} kg</span>
+                    <span class="about-name">Abilities</span>
+                    <span class="about-value about-abilities">${pokemon.abilities.join(', ')}</span>
+                </div>
                 <div class="stats" data-tab-id="stats">
                     ${pokemon.stats.map(stat => `
                     <span class="stat-name">${stat.name}</span>
