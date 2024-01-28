@@ -10,10 +10,23 @@ const statsNames = {
     'speed': 'Speed',
 };
 
-function convertPokeApiDetailToPokemon(pokeDetail) {
+async function getPokemonEvolutions(species) {
+    return fetch(species.evolution_chain.url)
+        .then(response => response.json())
+}
+
+async function getPokemonSpecies(pokemon) {
+    return fetch(pokemon.species.url)
+        .then(response => response.json())
+}
+
+async function convertPokeApiDetailToPokemon(pokeDetail) {
     const pokemon = new Pokemon()
     pokemon.number = pokeDetail.id
     pokemon.name = pokeDetail.name
+    
+    const species = await getPokemonSpecies(pokeDetail);
+    const evolutions = await getPokemonEvolutions(species);
 
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
     const [type] = types
