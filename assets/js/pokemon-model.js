@@ -11,4 +11,5 @@ class Pokemon {
     weight;
     abilities = [];
     species;
+    evolutionChain = {};
 }

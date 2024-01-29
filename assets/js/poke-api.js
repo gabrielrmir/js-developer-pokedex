@@ -20,6 +20,13 @@ async function getPokemonSpecies(pokemon) {
         .then(response => response.json())
 }
 
+function mapChain(chain) {
+    const newChain = {};
+    newChain.name = chain.species.name
+    newChain.next = chain.evolves_to.map(mapChain);
+    return newChain;
+}
+
 async function convertPokeApiDetailToPokemon(pokeDetail) {
     const pokemon = new Pokemon()
     pokemon.number = pokeDetail.id
@@ -27,8 +34,9 @@ async function convertPokeApiDetailToPokemon(pokeDetail) {
     
     const species = await getPokemonSpecies(pokeDetail);
     pokemon.species = species.genera.find(g => g.language.name === 'en').genus.replace(' Pokémon', '');
-    
+
     const evolutions = await getPokemonEvolutions(species);
+    pokemon.evolutionChain = mapChain(evolutions.chain);
 
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
     const [type] = types
