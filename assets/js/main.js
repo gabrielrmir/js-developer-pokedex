@@ -32,6 +32,8 @@ function convertPokemonToLi(pokemon) {
                     <button class="tab-button" onclick="selectModalTab(this,'moves')">Moves</button>
                 </div>
                 <div class="about" data-tab-id="about" selected>
+                    <span class="about-name">Species</span>
+                    <span class="about-value">${pokemon.species}</span>
                     <span class="about-name">Height</span>
                     <span class="about-value">${(pokemon.height*10).toFixed(2)} cm</span>
                     <span class="about-name">Weight</span>

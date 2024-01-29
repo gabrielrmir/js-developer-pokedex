@@ -26,6 +26,8 @@ async function convertPokeApiDetailToPokemon(pokeDetail) {
     pokemon.name = pokeDetail.name
     
     const species = await getPokemonSpecies(pokeDetail);
+    pokemon.species = species.genera.find(g => g.language.name === 'en').genus.replace(' Pokémon', '');
+    
     const evolutions = await getPokemonEvolutions(species);
 
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
