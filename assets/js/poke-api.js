@@ -32,7 +32,7 @@ function mapChain(chain) {
 async function convertPokeApiDetailToPokemon(pokeDetail) {
     const pokemon = new Pokemon()
     pokemon.number = pokeDetail.id
-    pokemon.name = pokeDetail.name
+    pokemon.name = pokeDetail.species.name
     
     const species = await getPokemonSpecies(pokeDetail);
     pokemon.species = species.genera.find(g => g.language.name === 'en').genus.replace(' Pokémon', '');
