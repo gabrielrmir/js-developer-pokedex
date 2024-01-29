@@ -23,6 +23,8 @@ async function getPokemonSpecies(pokemon) {
 function mapChain(chain) {
     const newChain = {};
     newChain.name = chain.species.name
+    const url = chain.species.url.replace(/\/$/, '')
+    newChain.img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${url.substring(url.lastIndexOf('/')+1)}.svg`;
     newChain.next = chain.evolves_to.map(mapChain);
     return newChain;
 }

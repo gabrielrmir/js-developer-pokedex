@@ -7,11 +7,11 @@ const maxRecords = 151
 const limit = 10
 let offset = 0;
 
-function chainToElement(chain) {
-    let element = `<div>
-        <img alt="${chain.name}" src="">
-        <div>
-            ${chain.next.map(chainToElement).join('')}
+function chainToElement(chain, selected) {
+    let element = `<div class="chain" ${selected === chain.name ? 'selected': ''}>
+        <img alt="${chain.name}" src="${chain.img}" onclick="selectEvolution(this.parentElement)">
+        <div class="next">
+            ${chain.next.map(next => chainToElement(next,selected)).join('')}
         </div>
     </div>`;
     return element;
@@ -60,7 +60,7 @@ function convertPokemonToLi(pokemon) {
                     </div>`).join('')}
                 </div>
                 <div data-tab-id="evolution">
-                    ${chainToElement(pokemon.evolutionChain)}
+                    ${chainToElement(pokemon.evolutionChain,pokemon.name)}
                 </div>
                 <div class="moves" data-tab-id="moves">
                     <ol>
@@ -102,6 +102,11 @@ function showModal(e) {
     modalElement.style.display = 'flex';
     modalContentElement.innerHTML = e.innerHTML;
     modalContentElement.className = e.classList[1];
+}
+
+function selectEvolution(e) {
+    document.querySelector('#modal-content .chain[selected]').removeAttribute('selected');
+    e.setAttribute('selected', true);
 }
 
 function selectModalTab(e,tabId) {

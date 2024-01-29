@@ -285,6 +285,41 @@
     height: 4px;
 }
 
+#modal-content .chain {
+    display: flex;
+}
+
+#modal-content .chain > img {
+    display: none;
+    width: 70px;
+    height: 70px;
+    padding: .5rem;
+    cursor: pointer;
+    color: gray;
+}
+
+#modal-content .chain[selected] > img {
+    display: block;
+    color: black;
+    /* border: 4px #F0F0F0 solid; */
+    border: 4px #F0F0F0 solid;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+#modal-content .chain > .next {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 150px;
+}
+
+#modal-content .next:has(>.chain[selected]) > .chain > img,
+#modal-content .chain:has(.chain[selected]) > img,
+#modal-content .chain[selected] > .next > .chain > img{
+    display: block;
+}
+
 #modal-content .moves ol {
     list-style-position: inside;
     padding: 0;
