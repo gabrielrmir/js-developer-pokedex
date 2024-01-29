@@ -10,6 +10,7 @@ let offset = 0;
 function chainToElement(chain, selected) {
     let element = `<div class="chain" ${selected === chain.name ? 'selected': ''}>
         <img alt="${chain.name}" src="${chain.img}" onclick="selectEvolution(this.parentElement)">
+        <div class="next-arrow">></div>
         <div class="next">
             ${chain.next.map(next => chainToElement(next,selected)).join('')}
         </div>
