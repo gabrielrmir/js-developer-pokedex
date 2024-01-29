@@ -208,7 +208,7 @@
 
 #modal-content .detail img {
     height: 280px;
-
+    max-width: 100%;
 }
 
 #modal-content .tab-container {
