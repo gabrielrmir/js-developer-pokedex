@@ -7,6 +7,16 @@ const maxRecords = 151
 const limit = 10
 let offset = 0;
 
+function chainToElement(chain) {
+    let element = `<div>
+        <img alt="${chain.name}" src="">
+        <div>
+            ${chain.next.map(chainToElement).join('')}
+        </div>
+    </div>`;
+    return element;
+}
+
 function convertPokemonToLi(pokemon) {
     return `
         <li class="pokemon ${pokemon.type}">
@@ -49,7 +59,9 @@ function convertPokemonToLi(pokemon) {
                         <div class="stat-bar" style="width: ${stat.amount%100}%; background: hsl(${(144+50*Math.floor(stat.amount/100))%360}, 51%, 49%);"></div>
                     </div>`).join('')}
                 </div>
-                <div data-tab-id="evolution">Evolution</div>
+                <div data-tab-id="evolution">
+                    ${chainToElement(pokemon.evolutionChain)}
+                </div>
                 <div class="moves" data-tab-id="moves">
                     <ol>
                         ${pokemon.moves.map(move => `
