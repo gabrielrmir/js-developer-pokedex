@@ -291,19 +291,19 @@
 }
 
 #modal-content .chain > img {
-    display: none;
+    /* display: none; */
+    /* cursor: pointer; */
     width: 70px;
     height: 70px;
     padding: .5rem;
-    cursor: pointer;
     color: gray;
 }
 
 #modal-content .chain[selected] > img {
-    display: block;
+    /* display: block; */
+    /* border-radius: 1rem; */
     color: black;
     background: radial-gradient(#3DBD70 0%, white 75%);
-    border-radius: 1rem;
 }
 
 #modal-content .chain > .next {
@@ -317,7 +317,7 @@
     color: gray;
 }
 
-#modal-content .chain:not(:has(> .next > .chain)) > .next-arrow {
+/* #modal-content .chain:not(:has(> .next > .chain)) > .next-arrow {
     display: none;
 }
 
@@ -325,7 +325,7 @@
 #modal-content .chain:has(.chain[selected]) > img,
 #modal-content .chain[selected] > .next > .chain > img{
     display: block;
-}
+} */
 
 #modal-content .moves ol {
     list-style-position: inside;

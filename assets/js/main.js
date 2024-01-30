@@ -9,8 +9,8 @@ let offset = 0;
 
 function chainToElement(chain, selected) {
     let element = `<div class="chain" ${selected === chain.name ? 'selected': ''}>
-        <img alt="${chain.name}" src="${chain.img}" onclick="selectEvolution(this.parentElement)">
-        <div class="next-arrow">></div>
+        <img alt="${chain.name}" src="${chain.img}">
+        ${chain.next.length > 0 ? '<div class="next-arrow">></div>' : ''}
         <div class="next">
             ${chain.next.map(next => chainToElement(next,selected)).join('')}
         </div>
@@ -105,10 +105,10 @@ function showModal(e) {
     modalContentElement.className = e.classList[1];
 }
 
-function selectEvolution(e) {
-    document.querySelector('#modal-content .chain[selected]').removeAttribute('selected');
-    e.setAttribute('selected', true);
-}
+// function selectEvolution(e) {
+//     document.querySelector('#modal-content .chain[selected]').removeAttribute('selected');
+//     e.setAttribute('selected', true);
+// }
 
 function selectModalTab(e,tabId) {
     const modalTabs = document.querySelectorAll(`#modal-content .tab-container [data-tab-id]`);
